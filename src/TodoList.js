@@ -17,12 +17,14 @@ class TodoList extends Component {
     }
 
     //当input框中的值改变时触发的事件
-    handleInputChange(e) {
+    handleInputChange() {
 
         // this.setState({
         //     inputValue: e.target.value
         // } )
-        const value = e.target.value;
+
+        // const value = e.target.value;
+        const value = this.input.value;
         this.setState(() => ({
             inputValue: value
         }));
@@ -77,6 +79,7 @@ class TodoList extends Component {
                     <input
                         value={this.state.inputValue}
                         onChange={this.handleInputChange}
+                        ref={(input) => {this.input = input}}
                     />
                     <button onClick={this.handleBtnClick}>添加</button>
                     <ul>

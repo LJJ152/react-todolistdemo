@@ -1,5 +1,6 @@
 import React,{ Component,Fragment } from 'react'
 import TodoItem from "./TodoItem";
+import axios from 'axios'
 
 class TodoList extends Component {
 
@@ -114,9 +115,12 @@ class TodoList extends Component {
     }
 
     //组件挂载到页面后
-    // componentDidMount() {
-    //                 console.log('componentDidMount')
-    // }
+    componentDidMount() {
+        console.log('componentDidMount');
+        axios.get('/api/todolist')
+            .then(() => {alert("succ")})
+            .catch(() => {alert("erro")})
+    }
 }
 
 export default TodoList;

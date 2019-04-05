@@ -26,7 +26,16 @@ class TodoItem extends Component{
     //     console.log('TodoItem-componentWillUnmount')
     // }
 
+    //组件被更新之前
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        if (nextProps.content !== this.props.content) {
+            return true
+        }
+        return false;
+    }
+    
     render() {
+        console.log('我是子组件')
         const {content, test} = this.props;
         return (
             <div onClick={this.handleDelete}>

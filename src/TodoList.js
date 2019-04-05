@@ -70,7 +70,30 @@ class TodoList extends Component {
         )
     }
 
+    //在组件即将被挂载到页面时
+    componentWillMount() {
+            console.log('componentWillMount')
+    }
+
+    //组件被更新之前
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log('shouldComponentUpdate');
+        return true;
+    }
+
+    //组件被更新之前，但在should之后
+    //should中返回true才会被执行
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        console.log('componentWillUpdate');
+    }
+
+    //组件完成更新后执行
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('componentDidUpdate');
+    }
+
     render() {
+            console.log('render');
         return (
             <Fragment>
                 <div>
@@ -88,6 +111,11 @@ class TodoList extends Component {
                 </div>
             </Fragment>
         )
+    }
+
+    //组件挂载到页面后
+    componentDidMount() {
+                    console.log('componentDidMount')
     }
 }
 

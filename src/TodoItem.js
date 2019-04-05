@@ -14,6 +14,18 @@ class TodoItem extends Component{
         deleteItem(index);
     }
 
+    //当一个组件要从一个父组件中接收参数
+    //如果这个组件第一次存在于父组件当中，不会执行
+    //如果这个组件之前已经存在于父组件当中，才会执行
+    componentWillReceiveProps(nextProps, nextContext) {
+        console.log('TodoItem-componentWillReceiveProps')
+    }
+
+    //将要解绑时
+    componentWillUnmount() {
+        console.log('TodoItem-componentWillUnmount')
+    }
+
     render() {
         const {content, test} = this.props;
         return (
